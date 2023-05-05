@@ -40,14 +40,45 @@ window.onload = function(){
 //this will be for when the button is clicked.
 function onButtonClick(){
  console.log ("onbuttonclick")
-    // caltulate the base price 
+    // calculate the base price 
+    let scoops = Number(numberOfScoops.value);
+
+    let basePriceAmount = (2.25 + ((scoops - 1) * 1.25));
+    basePrice.innerHTML = basePriceAmount;
+ 
+
+    let toppingsAmountTotal = 0;
 
     
     //calculate the toppings price
+    if (toppingSprinkles.checked){
+        toppingsAmountTotal += 0.50;
+    } 
+
+    if (toppingHotfudge.checked){
+        toppingsAmountTotal += 1.25;
+    } 
+
+    if (toppingWhipped.checked){
+        toppingsAmountTotal += 0.25;
+    } 
+
+    if (toppingCherry.checked){
+        toppingsAmountTotal += 0.25;
+    } 
+
+    // at this point we have the total toppings value!
+
+    toppingsAmount.innerHTML = toppingsAmountTotal;
+
+
 
 
     // calculate the total
 
+    let total = toppingsAmountTotal + basePriceAmount;
+
+    totalAmount.innerHTML = total;
   
 
 }
@@ -55,12 +86,21 @@ function onButtonClick(){
 
 
 
-function toggleToppingDisplay(){
-    console.log ("toggletoppingdisplay");
+/*function toggleToppingDisplay(){
     //figure out if the toppings should or should not be displayed.
-
+    console.log ("toggletoppingdisplay");
+    let toppingRow = toppingCherry + toppingHotfudge + toppingSprinkles + toppingWhipped;
+    //figure out if the toppings should or should not be displayed.
+    if (cupChoice.onchange){
+        const test1 = document.querySelectorAll("#list")
+        console.log(test1)
+    toppingRow.style.display = "none";
+    }
+    else{
+    toppingRow.style.diplay = "block";
+    }
     //identify if Cup is selected, and show the toppings if it is.
 
     //identify if Cone is selected, and hide the toppings if it is.
 
-}
+}*/
